@@ -1,20 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
 import User from "./components/User";
-import UserAdd from "./components/UserAdd";
+import * as React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Users</h1>
-          <UserAdd />
-          <ul>
-            <User />
-          </ul>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+    state = {
+        userList: [
+            {id: '1', name: 'Albert', surname: 'Dziąslo'},
+            {id: '2', name: 'Zenon', surname: 'Piękny'}
+        ]
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <h1>Users</h1>
+                    <User userList={this.state.userList} />
+                </header>
+            </div>
+        );
+    }
 }
 
 export default App;

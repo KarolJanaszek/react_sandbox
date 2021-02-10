@@ -1,36 +1,50 @@
-import {Component} from "react";
 import * as React from "react";
 import UserDelete from "./UserDelete";
+import UserAdd from "./UserAdd";
 
 class User extends React.Component {
 
-    state = {
-        userList: [
-            {id: '1', name: 'Albert', surname: 'Dziąslo'},
-            {id: '2', name: 'Zenon', surname: 'Piękny'}
-        ]
+    constructor(props) {
+        super(props);
+        this.state = {
+            userList: this.props.userList
+        }
     }
 
     deleteUser(id) {
         const idx = this.state.userList.findIndex(i => i.id == id)
-        // const updatedUserList = this.state.userList.splice(idx, 1)
-        // this.setState({userList: updatedUserList})
-        console.log(id)
+        if(idx !== -1) {
+            const updatedUserList =  [...this.state.userList]
+            updatedUserList.splice(idx, 1)
+            this.setState({userList: updatedUserList})
+        }
     }
 
-
+    addUser = (id, name, surname) => {
+        const user = {id, name, surname}
+        this.setState((state) => ({
+            userList: [user, ...state.userList]
+        }))
+    }
 
     render() {
         const users = this.state.userList.map(u => {
             return (
                 <li key={u.id}>
-                    {u.name} {u.surname} <UserDelete user={u} clicked={() => this.deleteUser()} />
+                    {u.name} {u.surname} <UserDelete user={u} clicked={() => this.deleteUser(u.id)} />
                 </li>
             )
         })
         return (
             <div>
-                {users}
+                <div>
+                    <UserAdd lastId={this.state.userList[this.state.userList.length-1].id} onSubmit={this.addUser}/>
+                </div>
+                <div>
+                    <ul>
+                     {users}
+                    </ul>
+                </div>
             </div>
         );
     }
