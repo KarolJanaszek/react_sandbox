@@ -2,10 +2,14 @@ import * as React from "react";
 import PropTypes from "prop-types";
 
 class UserAdd extends React.Component {
-    state = {
-        id: '',
-        name: '',
-        surname: '',
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: '',
+            name: '',
+            surname: '',
+        }
     }
 
     static propTypes = {
@@ -16,7 +20,6 @@ class UserAdd extends React.Component {
         const nextId = (Number(this.props.lastId) + 1).toString()
         this.props.onSubmit(nextId, this.state.name, this.state.surname);
         this.setState({
-            id:  '',
             name: '',
             surname: ''});
     }

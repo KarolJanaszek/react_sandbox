@@ -30,7 +30,7 @@ class User extends React.Component {
     render() {
         let lastId = 0;
         if (this.state.userList !== 'undefined' && this.state.userList.length > 0){
-            lastId=this.state.userList[this.state.userList.length-1].id
+            lastId=this.state.userList[0].id
         }
         const users = this.state.userList.map(u => {
             return (
