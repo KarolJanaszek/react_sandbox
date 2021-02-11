@@ -1,5 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { Button } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 
 class UserAdd extends React.Component {
 
@@ -37,10 +39,11 @@ class UserAdd extends React.Component {
     render() {
         return(
             <div>
-                <p>Add new User</p>
-                <input type="text" value={this.state.name} placeholder="Name..." onChange={(event)=>this.inputNameHandler(event)} />
-                <input type="text" value={this.state.surname} placeholder="Surname..." onChange={(event)=>this.inputSurnameHandler(event)} />
-                <button onClick={this.addUser}>Add</button>
+                <Input type="text" label="Standard" value={this.state.name} placeholder="Name..."
+                       onChange={(event)=>this.inputNameHandler(event)} style={{color: "white"}} />
+                <Input type="text" label="Standard" value={this.state.surname} placeholder="Surname..."
+                       onChange={(event)=>this.inputSurnameHandler(event)} style={{color: "white"}} />
+                <Button color="primary" variant="outlined" onClick={this.addUser}>Add</Button>
             </div>
         )
     }

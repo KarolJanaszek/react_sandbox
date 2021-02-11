@@ -1,7 +1,7 @@
-
+import { Button } from '@material-ui/core';
 
 const UserDelete = pros => {
-    return <button onClick={() => pros.clicked(pros.user.id)}>Delete</button>
+    return <Button color="secondary" variant="outlined" onClick={() => pros.clicked(pros.userId)}>Delete</Button>
 }
 
 export default UserDelete;
