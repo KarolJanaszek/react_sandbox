@@ -6,8 +6,9 @@ class App extends React.Component{
 
     state = {
         userList: [
-            {id: '1', name: 'Albert', surname: 'Dziąslo'},
-            {id: '2', name: 'Zenon', surname: 'Piękny'}
+            {id: '1', name: 'Albert', surname: 'Dziąsło'},
+            {id: '2', name: 'Zenon', surname: 'Piękny'},
+            {id: '3', name: 'Cezary', surname: 'BarykaSięZCelem'}
         ]
     }
 

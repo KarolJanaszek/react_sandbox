@@ -28,17 +28,21 @@ class User extends React.Component {
     }
 
     render() {
+        let lastId = 0;
+        if (this.state.userList !== 'undefined' && this.state.userList.length > 0){
+            lastId=this.state.userList[this.state.userList.length-1].id
+        }
         const users = this.state.userList.map(u => {
             return (
                 <li key={u.id}>
-                    {u.name} {u.surname} <UserDelete user={u} clicked={() => this.deleteUser(u.id)} />
+                    {u.name} {u.surname} ({u.id}) <UserDelete user={u} clicked={() => this.deleteUser(u.id)} />
                 </li>
             )
         })
         return (
             <div>
                 <div>
-                    <UserAdd lastId={this.state.userList[this.state.userList.length-1].id} onSubmit={this.addUser}/>
+                    <UserAdd lastId={lastId} onSubmit={this.addUser}/>
                 </div>
                 <div>
                     <ul>
