@@ -75,8 +75,8 @@ class User extends React.Component {
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCell>ID</StyledTableCell>
-                                    <StyledTableCell>Surname</StyledTableCell>
                                     <StyledTableCell>Name</StyledTableCell>
+                                    <StyledTableCell>Surname</StyledTableCell>
                                     <StyledTableCell align="center">Options</StyledTableCell>
                                 </TableRow>
                             </TableHead>
@@ -84,8 +84,8 @@ class User extends React.Component {
                                 {rows.map((row) => (
                                     <StyledTableRow key={row.id}>
                                         <StyledTableCell>{row.id}</StyledTableCell>
-                                        <StyledTableCell>{row.surname}</StyledTableCell>
                                         <StyledTableCell>{row.name}</StyledTableCell>
+                                        <StyledTableCell>{row.surname}</StyledTableCell>
                                         <StyledTableCell>
                                             <UserDelete userId={row.id} clicked={() => this.deleteUser(row.id)} />
                                         </StyledTableCell>
