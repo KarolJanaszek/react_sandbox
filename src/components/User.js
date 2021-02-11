@@ -12,7 +12,7 @@ class User extends React.Component {
     }
 
     deleteUser(id) {
-        const idx = this.state.userList.findIndex(i => i.id == id)
+        const idx = this.state.userList.findIndex(i => i.id === id)
         if(idx !== -1) {
             const updatedUserList =  [...this.state.userList]
             updatedUserList.splice(idx, 1)
